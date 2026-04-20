@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initBackground();
     initNavbar();
-    initDemoTabs();
+    
     initScrollAnimations();
 });
 
@@ -130,28 +130,6 @@ function initNavbar() {
                     block: 'start'
                 });
             }
-        });
-    });
-}
-
-/**
- * Demo Section Tab Switching
- */
-function initDemoTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const demoContents = document.querySelectorAll('.demo-content');
-    
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetTab = this.getAttribute('data-tab');
-            
-            // Remove all active states
-            tabBtns.forEach(b => b.classList.remove('active'));
-            demoContents.forEach(c => c.classList.remove('active'));
-            
-            // Add active state to current tab
-            this.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
         });
     });
 }

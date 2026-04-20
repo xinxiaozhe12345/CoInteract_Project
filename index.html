@@ -68,14 +68,9 @@
             </div>
         </div>
         <div class="hero-visual">
-            <!-- Video Placeholder -->
-            <div class="video-placeholder" id="heroVideoPlaceholder">
-                <div class="placeholder-content">
-                    <div class="placeholder-icon">🎬</div>
-                    <div class="placeholder-text">Main Demo Video</div>
-                    <div class="placeholder-hint">Place your core demo video here, e.g. effect showcase, interaction demo, etc.</div>
-                </div>
-                <div class="placeholder-border"></div>
+            <!-- Main Demo Video -->
+            <div class="hero-video-wrapper">
+                <video src="asset/main_demo.mp4" autoplay loop muted playsinline></video>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -125,139 +120,47 @@
             <p class="section-subtitle">See It In Action</p>
         </div>
         
-        <!-- Demo Tabs -->
-        <div class="demo-tabs">
-            <button class="tab-btn active" data-tab="grasping">Grasping</button>
-            <button class="tab-btn" data-tab="wearing">Wearing</button>
-            <button class="tab-btn" data-tab="gesturing">Gesturing</button>
-            <button class="tab-btn" data-tab="carrying">Carrying</button>
-        </div>
-
-        <!-- Grasping Demo -->
-        <div class="demo-content active" id="grasping">
-            <div class="demo-grid">
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">✋</div>
-                            <div class="placeholder-text">Grasping Demo 1</div>
-                            <div class="placeholder-hint">Person holds a cup and points at it</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Object Grasping</h4>
-                        <p>Physically plausible hand-object contact without interpenetration</p>
-                    </div>
-                </div>
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">✋</div>
-                            <div class="placeholder-text">Grasping Demo 2</div>
-                            <div class="placeholder-hint">Person holds a white instrument and gestures</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Precise Hand Articulation</h4>
-                        <p>Stable finger structure during complex object manipulation</p>
-                    </div>
-                </div>
+        <!-- Demo Gallery -->
+        <div class="demo-gallery">
+            <div class="demo-video-card">
+                <video src="asset/win1.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Macaron Box</h4><p>Presenting desserts in a bakery setting</p></div>
             </div>
-        </div>
-
-        <!-- Wearing Demo -->
-        <div class="demo-content" id="wearing">
-            <div class="demo-grid">
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">👜</div>
-                            <div class="placeholder-text">Wearing Demo 1</div>
-                            <div class="placeholder-hint">Woman wears a bag and adjusts its strap</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Wearable Interaction</h4>
-                        <p>Natural wearing and adjusting of accessories with body-aware contact</p>
-                    </div>
-                </div>
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">🧥</div>
-                            <div class="placeholder-text">Wearing Demo 2</div>
-                            <div class="placeholder-hint">Person holds a puffer jacket and picks up pants</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Fashion Try-On</h4>
-                        <p>Coherent garment handling with identity-preserving generation</p>
-                    </div>
-                </div>
+            <div class="demo-video-card">
+                <video src="asset/win2.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Leather Handbag</h4><p>Showcasing a luxury bag in a boutique</p></div>
             </div>
-        </div>
-
-        <!-- Gesturing Demo -->
-        <div class="demo-content" id="gesturing">
-            <div class="demo-grid">
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">👋</div>
-                            <div class="placeholder-text">Gesturing Demo 1</div>
-                            <div class="placeholder-hint">Speech-driven co-speech gesture with object</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Co-Speech Gesture</h4>
-                        <p>Audio-driven hand gestures synchronized with speech while holding objects</p>
-                    </div>
-                </div>
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">👋</div>
-                            <div class="placeholder-text">Gesturing Demo 2</div>
-                            <div class="placeholder-hint">Expressive hand movement during product showcase</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Product Presentation</h4>
-                        <p>Natural gesturing while demonstrating product features</p>
-                    </div>
-                </div>
+            <div class="demo-video-card">
+                <video src="asset/win3.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Teapot</h4><p>Holding a teapot on a scenic terrace</p></div>
             </div>
-        </div>
-
-        <!-- Carrying Demo -->
-        <div class="demo-content" id="carrying">
-            <div class="demo-grid">
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">🧸</div>
-                            <div class="placeholder-text">Carrying Demo 1</div>
-                            <div class="placeholder-hint">Woman supports a plush toy in front of her chest</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Object Support</h4>
-                        <p>Stable object holding with consistent spatial relationships</p>
-                    </div>
-                </div>
-                <div class="demo-video-card">
-                    <div class="video-placeholder">
-                        <div class="placeholder-content">
-                            <div class="placeholder-icon">📦</div>
-                            <div class="placeholder-text">Carrying Demo 2</div>
-                            <div class="placeholder-hint">Person carries and showcases a product item</div>
-                        </div>
-                    </div>
-                    <div class="demo-caption">
-                        <h4>Product Showcase</h4>
-                        <p>E-commerce style product demonstration with realistic interaction</p>
-                    </div>
-                </div>
+            <div class="demo-video-card">
+                <video src="asset/win4.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Skincare Serum</h4><p>Presenting a serum bottle at a beauty counter</p></div>
+            </div>
+            <div class="demo-video-card">
+                <video src="asset/win5.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Eyeshadow Palette</h4><p>Displaying a makeup palette in a studio</p></div>
+            </div>
+            <div class="demo-video-card">
+                <video src="asset/win6.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Sports Jacket</h4><p>Presenting athletic wear in a sports store</p></div>
+            </div>
+            <div class="demo-video-card">
+                <video src="asset/win7.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Emerald Necklace</h4><p>Showcasing jewelry at a luxury counter</p></div>
+            </div>
+            <div class="demo-video-card">
+                <video src="asset/win8.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Decorative Plate</h4><p>Presenting an art piece at a formal event</p></div>
+            </div>
+            <div class="demo-video-card">
+                <video src="asset/win9.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Cactus Pot</h4><p>Holding a potted plant in a restaurant</p></div>
+            </div>
+            <div class="demo-video-card">
+                <video src="asset/win10.mp4" autoplay loop muted playsinline></video>
+                <div class="demo-caption"><h4>Coffee Mug</h4><p>Enjoying a beverage at a beach bar</p></div>
             </div>
         </div>
     </section>

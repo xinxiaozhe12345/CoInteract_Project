@@ -320,68 +320,20 @@ body {
     z-index: 1;
 }
 
-/* Video Placeholder */
-.video-placeholder {
-    position: relative;
+/* Hero Video */
+.hero-video-wrapper {
     width: 100%;
-    aspect-ratio: 16/9;
-    background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
-    border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition-medium);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.4);
 }
 
-.video-placeholder:hover {
-    border-color: var(--accent-primary);
-    box-shadow: var(--glow-primary);
-}
-
-.placeholder-content {
-    text-align: center;
-    padding: 40px;
-}
-
-.placeholder-icon {
-    font-size: 4rem;
-    margin-bottom: 16px;
-    opacity: 0.8;
-}
-
-.placeholder-text {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-}
-
-.placeholder-hint {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    max-width: 300px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-.placeholder-border {
-    position: absolute;
-    inset: 0;
-    border: 2px solid transparent;
+.hero-video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary)) 
-                border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: var(--transition-medium);
-}
-
-.video-placeholder:hover .placeholder-border {
-    opacity: 1;
 }
 
 /* Scroll Indicator */
@@ -530,66 +482,25 @@ section {
     background: var(--bg-secondary);
 }
 
-.demo-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    padding: 14px 32px;
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: var(--transition-fast);
-}
-
-.tab-btn:hover {
-    border-color: var(--accent-primary);
-    color: var(--text-primary);
-}
-
-.tab-btn.active {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    border-color: transparent;
-    color: var(--bg-primary);
-}
-
-.demo-content {
-    display: none;
-}
-
-.demo-content.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.demo-grid {
+/* Demo Gallery */
+.demo-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
 }
 
 .demo-video-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     transition: var(--transition-medium);
+}
+
+.demo-video-card video {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .demo-video-card:hover {
@@ -599,18 +510,19 @@ section {
 }
 
 .demo-caption {
-    padding: 24px;
+    padding: 14px 16px;
 }
 
 .demo-caption h4 {
     font-family: var(--font-display);
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
 }
 
 .demo-caption p {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
+    line-height: 1.4;
 }
 
 /* Architecture Section */
@@ -1027,8 +939,11 @@ section {
         text-align: center;
     }
     
+    .demo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .features-grid,
-    .demo-grid,
     .team-grid {
         grid-template-columns: 1fr;
     }
