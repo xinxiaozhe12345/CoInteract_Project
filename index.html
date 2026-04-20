@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoInteract - Physically-Consistent HOI Video Synthesis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <div class="bg-animation">
+        <canvas id="bgCanvas"></canvas>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">COINTERACT</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                <li><a href="#papers" class="nav-link">Papers</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://github.com/your-repo" target="_blank" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Under Review
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">CO</span>
+                <span class="title-line accent">INTERACT</span>
+            </h1>
+            <p class="hero-description">
+                An end-to-end framework for physically-consistent human–object interaction (HOI) video synthesis.
+                Conditioned on person &amp; product reference images, text prompts, and speech audio, CoInteract embeds structural priors and interaction geometry directly into a Diffusion Transformer backbone.
+            </p>
+            <div class="hero-actions">
+                <a href="#demo" class="btn btn-primary">
+                    <span class="btn-icon">▶</span>
+                    View Demo
+                </a>
+                <a href="#papers" class="btn btn-secondary">
+                    <span class="btn-icon">📄</span>
+                    Read Paper
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <!-- Video Placeholder -->
+            <div class="video-placeholder" id="heroVideoPlaceholder">
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">🎬</div>
+                    <div class="placeholder-text">Main Demo Video</div>
+                    <div class="placeholder-hint">Place your core demo video here, e.g. effect showcase, interaction demo, etc.</div>
+                </div>
+                <div class="placeholder-border"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">What Makes Us Different</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3 class="feature-title">Human-Aware MoE</h3>
+                <p class="feature-desc">Spatially-supervised Mixture-of-Experts routes tokens to region-specialized experts for hands and faces, ensuring high structural fidelity with minimal parameter overhead</p>
+                <div class="feature-glow"></div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3 class="feature-title">Dual-Stream Co-Generation</h3>
+                <p class="feature-desc">An auxiliary HOI structure stream jointly trained with the RGB stream within a shared DiT backbone, forcing the model to learn spatial and interaction relationships</p>
+                <div class="feature-glow"></div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Physical Consistency</h3>
+                <p class="feature-desc">Asymmetric co-attention mask embeds physical interaction rules into the DiT, substantially reducing hand-object interpenetration and geometric misalignment</p>
+                <div class="feature-glow"></div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Zero Inference Overhead</h3>
+                <p class="feature-desc">The HOI branch is removed at inference time, transferring interaction-structure supervision to the RGB generator at near-zero additional computational cost</p>
+                <div class="feature-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="section-header">
+            <h2 class="section-title">Demo Showcase</h2>
+            <p class="section-subtitle">See It In Action</p>
+        </div>
+        
+        <!-- Demo Tabs -->
+        <div class="demo-tabs">
+            <button class="tab-btn active" data-tab="grasping">Grasping</button>
+            <button class="tab-btn" data-tab="wearing">Wearing</button>
+            <button class="tab-btn" data-tab="gesturing">Gesturing</button>
+            <button class="tab-btn" data-tab="carrying">Carrying</button>
+        </div>
+
+        <!-- Grasping Demo -->
+        <div class="demo-content active" id="grasping">
+            <div class="demo-grid">
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">✋</div>
+                            <div class="placeholder-text">Grasping Demo 1</div>
+                            <div class="placeholder-hint">Person holds a cup and points at it</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Object Grasping</h4>
+                        <p>Physically plausible hand-object contact without interpenetration</p>
+                    </div>
+                </div>
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">✋</div>
+                            <div class="placeholder-text">Grasping Demo 2</div>
+                            <div class="placeholder-hint">Person holds a white instrument and gestures</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Precise Hand Articulation</h4>
+                        <p>Stable finger structure during complex object manipulation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wearing Demo -->
+        <div class="demo-content" id="wearing">
+            <div class="demo-grid">
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">👜</div>
+                            <div class="placeholder-text">Wearing Demo 1</div>
+                            <div class="placeholder-hint">Woman wears a bag and adjusts its strap</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Wearable Interaction</h4>
+                        <p>Natural wearing and adjusting of accessories with body-aware contact</p>
+                    </div>
+                </div>
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🧥</div>
+                            <div class="placeholder-text">Wearing Demo 2</div>
+                            <div class="placeholder-hint">Person holds a puffer jacket and picks up pants</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Fashion Try-On</h4>
+                        <p>Coherent garment handling with identity-preserving generation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gesturing Demo -->
+        <div class="demo-content" id="gesturing">
+            <div class="demo-grid">
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">👋</div>
+                            <div class="placeholder-text">Gesturing Demo 1</div>
+                            <div class="placeholder-hint">Speech-driven co-speech gesture with object</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Co-Speech Gesture</h4>
+                        <p>Audio-driven hand gestures synchronized with speech while holding objects</p>
+                    </div>
+                </div>
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">👋</div>
+                            <div class="placeholder-text">Gesturing Demo 2</div>
+                            <div class="placeholder-hint">Expressive hand movement during product showcase</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Product Presentation</h4>
+                        <p>Natural gesturing while demonstrating product features</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrying Demo -->
+        <div class="demo-content" id="carrying">
+            <div class="demo-grid">
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🧸</div>
+                            <div class="placeholder-text">Carrying Demo 1</div>
+                            <div class="placeholder-hint">Woman supports a plush toy in front of her chest</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Object Support</h4>
+                        <p>Stable object holding with consistent spatial relationships</p>
+                    </div>
+                </div>
+                <div class="demo-video-card">
+                    <div class="video-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">📦</div>
+                            <div class="placeholder-text">Carrying Demo 2</div>
+                            <div class="placeholder-hint">Person carries and showcases a product item</div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h4>Product Showcase</h4>
+                        <p>E-commerce style product demonstration with realistic interaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="architecture">
+        <div class="section-header">
+            <h2 class="section-title">Architecture</h2>
+            <p class="section-subtitle">Technical Architecture</p>
+        </div>
+        
+        <div class="architecture-container">
+            <!-- Architecture Diagram -->
+            <div class="architecture-diagram">
+                <img src="asset/pipeline2.png" alt="CoInteract Pipeline Architecture" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+            </div>
+
+            <div class="architecture-details">
+                <div class="arch-item">
+                    <div class="arch-number">01</div>
+                    <h4>DiT Backbone with Dual-Stream</h4>
+                    <p>A shared Diffusion Transformer backbone jointly generates RGB video and an auxiliary HOI structure stream with stream-specific modulation parameters</p>
+                </div>
+                <div class="arch-item">
+                    <div class="arch-number">02</div>
+                    <h4>Human-Aware MoE</h4>
+                    <p>Spatially-supervised router dispatches tokens to region-specialized experts (Head, Hand, Base) for enhanced structural fidelity in anatomically sensitive regions</p>
+                </div>
+                <div class="arch-item">
+                    <div class="arch-number">03</div>
+                    <h4>Asymmetric Co-Attention</h4>
+                    <p>Two-stage training with an asymmetric attention mask enables the HOI branch to be removed at inference, achieving zero overhead while preserving interaction priors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="papers" class="papers">
+        <div class="section-header">
+            <h2 class="section-title">Publications</h2>
+            <p class="section-subtitle">Research Papers</p>
+        </div>
+        
+        <div class="papers-list">
+            <div class="paper-card">
+                <div class="paper-icon">📚</div>
+                <div class="paper-content">
+                    <h3 class="paper-title">CoInteract: Physically-Consistent Human-Object Interaction Video Synthesis via Spatially-Structured Co-Generation</h3>
+                    <div class="paper-authors">
+                        <span class="author">Xiangyang Luo</span><sup class="equal-contrib">*†</sup>,
+                        <span class="author">Xiaozhe Xin</span><sup class="equal-contrib">*‡</sup>,
+                        <span class="author">Tao Feng</span><sup>†</sup>,
+                        <span class="author">Xu Guo</span><sup>†</sup>,
+                        <span class="author">Meiguang Jin</span><sup>‡</sup>,
+                        <span class="author">Junfeng Ma</span><sup>‡</sup>
+                    </div>
+                    <div class="paper-affiliations">
+                        <span class="affiliation"><sup>†</sup> Tsinghua University</span>
+                        <span class="affiliation"><sup>‡</sup> Alibaba Group</span>
+                    </div>
+                    <div class="paper-notes">
+                        <span>* Equal Contribution</span>
+                        <span>·</span>
+                        <span>Xiaozhe Xin is the Project Lead</span>
+                    </div>
+                    <div class="paper-venue">Under Review, 2025</div>
+                    <div class="paper-links">
+                        <a href="#" class="paper-link">
+                            <span>📄</span> Paper
+                        </a>
+                        <a href="https://github.com/your-repo" target="_blank" class="paper-link">
+                            <span>💻</span> Code
+                        </a>
+                        <a href="javascript:void(0)" class="paper-link" onclick="toggleBibtex()">
+                            <span>📝</span> BibTeX
+                        </a>
+                    </div>
+                    <div class="bibtex-box" id="bibtexBox" style="display:none;">
+                        <pre><code>@article{luo2025cointeract,
+  title={CoInteract: Physically-Consistent Human-Object Interaction Video Synthesis via Spatially-Structured Co-Generation},
+  author={Luo, Xiangyang and Xin, Xiaozhe and Feng, Tao and Guo, Xu and Jin, Meiguang and Ma, Junfeng},
+  journal={arXiv preprint},
+  year={2025}
+}</code></pre>
+                        <button class="copy-bibtex" onclick="copyBibtex()">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="section-header">
+            <h2 class="section-title">Team</h2>
+            <p class="section-subtitle">Research Team</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card highlight">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">👤</div>
+                </div>
+                <h4 class="team-name">Xiangyang Luo</h4>
+                <p class="team-role">Co-first Author</p>
+                <p class="team-affil">Tsinghua University &amp; Alibaba Group</p>
+                <div class="team-links">
+                    <a href="#" class="team-link">Google Scholar</a>
+                    <a href="#" class="team-link">GitHub</a>
+                </div>
+            </div>
+            <div class="team-card highlight">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">👤</div>
+                </div>
+                <h4 class="team-name">Xiaozhe Xin</h4>
+                <p class="team-role">Co-first Author &middot; <span class="lead-badge">Project Lead</span></p>
+                <p class="team-affil">Alibaba Group</p>
+                <div class="team-links">
+                    <a href="#" class="team-link">Google Scholar</a>
+                    <a href="#" class="team-link">GitHub</a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">👤</div>
+                </div>
+                <h4 class="team-name">Tao Feng</h4>
+                <p class="team-role">Core Contributor</p>
+                <p class="team-affil">Tsinghua University</p>
+                <div class="team-links">
+                    <a href="#" class="team-link">Google Scholar</a>
+                    <a href="#" class="team-link">GitHub</a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">👤</div>
+                </div>
+                <h4 class="team-name">Xu Guo</h4>
+                <p class="team-role">Core Contributor</p>
+                <p class="team-affil">Tsinghua University</p>
+                <div class="team-links">
+                    <a href="#" class="team-link">Google Scholar</a>
+                    <a href="#" class="team-link">GitHub</a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">👤</div>
+                </div>
+                <h4 class="team-name">Meiguang Jin</h4>
+                <p class="team-role">Core Contributor</p>
+                <p class="team-affil">Alibaba Group</p>
+                <div class="team-links">
+                    <a href="#" class="team-link">Google Scholar</a>
+                    <a href="#" class="team-link">GitHub</a>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">👤</div>
+                </div>
+                <h4 class="team-name">Junfeng Ma</h4>
+                <p class="team-role">Core Contributor</p>
+                <p class="team-affil">Alibaba Group</p>
+                <div class="team-links">
+                    <a href="#" class="team-link">Google Scholar</a>
+                    <a href="#" class="team-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon">◈</span>
+                <span>CoInteract</span>
+            </div>
+            <p class="footer-text">© 2025 CoInteract. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/your-repo" target="_blank">GitHub</a>
+                <span class="divider">|</span>
+                <a href="#" target="_blank">arXiv</a>
+                <span class="divider">|</span>
+                <a href="mailto:contact@cointeract.org">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
