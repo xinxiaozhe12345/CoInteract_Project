@@ -24,9 +24,9 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#demo" class="nav-link">Demo</a></li>
                 <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#papers" class="nav-link">Papers</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
             </ul>
@@ -65,6 +65,10 @@
                     <span class="btn-icon">📄</span>
                     Read Paper
                 </a>
+                <a href="https://github.com/luoxyhappy/CoInteract" target="_blank" class="btn btn-pill">
+                    <span class="btn-icon">💻</span>
+                    Code
+                </a>
             </div>
         </div>
         <div class="hero-video-full">
@@ -75,40 +79,6 @@
         <div class="scroll-indicator">
             <div class="scroll-line"></div>
             <span>Scroll Down</span>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="section-header">
-            <h2 class="section-title">Core Features</h2>
-            <p class="section-subtitle">What Makes Us Different</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3 class="feature-title">Human-Aware MoE</h3>
-                <p class="feature-desc">Spatially-supervised Mixture-of-Experts routes tokens to region-specialized experts for hands and faces, ensuring high structural fidelity with minimal parameter overhead</p>
-                <div class="feature-glow"></div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔗</div>
-                <h3 class="feature-title">Dual-Stream Co-Generation</h3>
-                <p class="feature-desc">An auxiliary HOI structure stream jointly trained with the RGB stream within a shared DiT backbone, forcing the model to learn spatial and interaction relationships</p>
-                <div class="feature-glow"></div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3 class="feature-title">Physical Consistency</h3>
-                <p class="feature-desc">Asymmetric co-attention mask embeds physical interaction rules into the DiT, substantially reducing hand-object interpenetration and geometric misalignment</p>
-                <div class="feature-glow"></div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Zero Inference Overhead</h3>
-                <p class="feature-desc">The HOI branch is removed at inference time, transferring interaction-structure supervision to the RGB generator at near-zero additional computational cost</p>
-                <div class="feature-glow"></div>
-            </div>
         </div>
     </section>
 
@@ -124,13 +94,6 @@
             <h3 class="subsection-title"><span class="subsection-num">01</span>Demo Gallery</h3>
             <p class="subsection-desc">Diverse object interactions across various real-world scenarios</p>
             <div class="demo-gallery">
-                <div class="demo-video-card"><video src="asset/gallery/win1.mp4" autoplay loop muted playsinline></video></div>
-                <div class="demo-video-card"><video src="asset/gallery/win2.mp4" autoplay loop muted playsinline></video></div>
-                <div class="demo-video-card"><video src="asset/gallery/win4.mp4" autoplay loop muted playsinline></video></div>
-                <div class="demo-video-card"><video src="asset/gallery/win5.mp4" autoplay loop muted playsinline></video></div>
-                <div class="demo-video-card"><video src="asset/gallery/win6.mp4" autoplay loop muted playsinline></video></div>
-                <div class="demo-video-card"><video src="asset/gallery/win10.mp4" autoplay loop muted playsinline></video></div>
-                <div class="demo-video-card"><video src="asset/gallery/win8.mp4" autoplay loop muted playsinline></video></div>
                 <div class="demo-video-card"><video src="asset/gallery/win9.mp4" autoplay loop muted playsinline></video></div>
                 <div class="demo-video-card"><video src="asset/gallery/win7.mp4" autoplay loop muted playsinline></video></div>
                 <div class="demo-video-card"><video src="asset/gallery/win11.mp4" autoplay loop muted playsinline></video></div>
@@ -138,6 +101,20 @@
                 <div class="demo-video-card"><video src="asset/gallery/win13.mp4" autoplay loop muted playsinline></video></div>
                 <div class="demo-video-card"><video src="asset/gallery/win14.mp4" autoplay loop muted playsinline></video></div>
                 <div class="demo-video-card"><video src="asset/gallery/win15.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win1.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win2.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win4.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win5.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win6.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win10.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win8.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/18_Realistic_cowboy_shot_shot_of_a_young_woman_with_a.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/19_Realistic_medium_full_shot_shot_of_a_young_woman_with.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/35_Realistic_half_body_shot_of_a_lean_man_in_his.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/37_Realistic_full_body_shot_of_a_middle-aged_man_with_salt-and-pepper.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/39_Realistic_cowboy_shot_shot_of_a_man_in_his_forties.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/44_Realistic_half_body_shot_of_a_friendly_man_in_his (1).mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/55_Realistic_cowboy_shot_shot_of_a_lean_man_in_his.mp4" autoplay loop muted playsinline></video></div>
             </div>
         </div>
 
@@ -397,6 +374,40 @@
                     <h4>Asymmetric Co-Attention</h4>
                     <p>Two-stage training with an asymmetric attention mask enables the HOI branch to be removed at inference, achieving zero overhead while preserving interaction priors</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">What Makes Us Different</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3 class="feature-title">Human-Aware MoE</h3>
+                <p class="feature-desc">Spatially-supervised Mixture-of-Experts routes tokens to region-specialized experts for hands and faces, ensuring high structural fidelity with minimal parameter overhead</p>
+                <div class="feature-glow"></div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3 class="feature-title">Dual-Stream Co-Generation</h3>
+                <p class="feature-desc">An auxiliary HOI structure stream jointly trained with the RGB stream within a shared DiT backbone, forcing the model to learn spatial and interaction relationships</p>
+                <div class="feature-glow"></div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Physical Consistency</h3>
+                <p class="feature-desc">Asymmetric co-attention mask embeds physical interaction rules into the DiT, substantially reducing hand-object interpenetration and geometric misalignment</p>
+                <div class="feature-glow"></div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Zero Inference Overhead</h3>
+                <p class="feature-desc">The HOI branch is removed at inference time, transferring interaction-structure supervision to the RGB generator at near-zero additional computational cost</p>
+                <div class="feature-glow"></div>
             </div>
         </div>
     </section>
