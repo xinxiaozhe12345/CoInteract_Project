@@ -280,6 +280,15 @@
                 </div>
                 <div class="interact-case">
                     <div class="interact-inputs">
+                        <div class="interact-img-wrap"><img src="asset/tryon/case2_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/tryon/case2_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                        <span class="interact-arrow">→</span>
+                    </div>
+                    <div class="interact-output"><video src="asset/tryon/case2.mp4" autoplay loop muted playsinline></video></div>
+                </div>
+                <div class="interact-case">
+                    <div class="interact-inputs">
                         <div class="interact-img-wrap"><img src="asset/tryon/case3_person.png" alt="Person"><span class="interact-label">Person</span></div>
                         <span class="interact-plus">+</span>
                         <div class="interact-img-wrap"><img src="asset/tryon/case3_product.png" alt="Product"><span class="interact-label">Product</span></div>
@@ -295,7 +304,10 @@
             <h3 class="subsection-title"><span class="subsection-num">06</span>SOTA Comparison</h3>
             <p class="subsection-desc">Comparison with state-of-the-art methods in human-object interaction video synthesis</p>
 
-            <!-- Comparison Case 1 -->
+            <div class="compare-carousel">
+                <button class="carousel-btn carousel-prev" onclick="slideCompare(-1)">&#8249;</button>
+                <div class="carousel-track">
+                    <!-- Comparison Case 1 -->
             <div class="compare-case">
                 <div class="compare-ref">
                     <div class="compare-ref-img"><img src="asset/Compare/case1/person.png" alt="Person"><span class="compare-ref-label">Person</span></div>
@@ -343,6 +355,14 @@
                     <div class="compare-method"><video src="asset/Compare/case3/phantom.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Phantom</span></div>
                     <div class="compare-method"><video src="asset/Compare/case3/skyreels.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">SkyReels</span></div>
                     <div class="compare-method"><video src="asset/Compare/case3/vace.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">VACE</span></div>
+                </div>
+            </div>
+                </div>
+                <button class="carousel-btn carousel-next" onclick="slideCompare(1)">&#8250;</button>
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" onclick="goToCompare(0)"></span>
+                    <span class="carousel-dot" onclick="goToCompare(1)"></span>
+                    <span class="carousel-dot" onclick="goToCompare(2)"></span>
                 </div>
             </div>
         </div>

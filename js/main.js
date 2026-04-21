@@ -294,3 +294,29 @@ function copyBibtex() {
         });
     }
 }
+
+/**
+ * SOTA Comparison Carousel
+ */
+let compareIndex = 0;
+
+function slideCompare(dir) {
+    const track = document.querySelector('.carousel-track');
+    const cases = track.querySelectorAll('.compare-case');
+    compareIndex = (compareIndex + dir + cases.length) % cases.length;
+    updateCarousel();
+}
+
+function goToCompare(idx) {
+    compareIndex = idx;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+    track.style.transform = `translateX(-${compareIndex * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === compareIndex);
+    });
+}

@@ -612,7 +612,7 @@ section {
 }
 
 .tryon-cases {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .interact-case {
@@ -820,6 +820,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .moe-main video {
@@ -912,7 +913,7 @@ section {
 .compare-methods {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
+    gap: 8px;
 }
 
 .compare-method {
@@ -950,6 +951,79 @@ section {
 .compare-method.ours .compare-method-label {
     color: var(--accent-primary);
     font-weight: 600;
+}
+
+/* Compare Carousel */
+.compare-carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-track .compare-case {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: rgba(15, 15, 23, 0.85);
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+    backdrop-filter: blur(8px);
+}
+
+.carousel-btn:hover {
+    border-color: var(--accent-primary);
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent-primary);
+}
+
+.carousel-prev { left: 8px; }
+.carousel-next { right: 8px; }
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.carousel-dot.active {
+    background: var(--accent-primary);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
 }
 
 /* ================================
