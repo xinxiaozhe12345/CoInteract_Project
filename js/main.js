@@ -1,13 +1,15 @@
 /**
- * High-Tech Project Page Interactive Script
+ * CoInteract Project Page Interactive Script
  */
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     initBackground();
     initNavbar();
-    
     initScrollAnimations();
+    initLazyVideos();
+    initParallaxHero();
+    initLightbox();
 });
 
 /**
@@ -19,16 +21,15 @@ function initBackground() {
     
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let mouse = { x: -1000, y: -1000 };
     let animationId;
     
-    // Set canvas size
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         initParticles();
     }
     
-    // Initialize particles
     function initParticles() {
         particles = [];
         const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
@@ -45,27 +46,37 @@ function initBackground() {
         }
     }
     
-    // Get random tech-style color
     function getRandomColor() {
         const colors = [
-            'rgba(0, 240, 255, 0.5)',   // Cyan
-            'rgba(123, 47, 255, 0.5)',  // Purple
-            'rgba(255, 45, 106, 0.3)',  // Pink
-            'rgba(0, 255, 136, 0.4)'    // Green
+            'rgba(0, 240, 255, 0.5)',
+            'rgba(123, 47, 255, 0.5)',
+            'rgba(255, 45, 106, 0.3)',
+            'rgba(0, 255, 136, 0.4)'
         ];
         return colors[Math.floor(Math.random() * colors.length)];
     }
     
-    // Draw particles
     function drawParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Draw particles
         particles.forEach((p, index) => {
+            // Mouse repulsion
+            const dx_m = p.x - mouse.x;
+            const dy_m = p.y - mouse.y;
+            const dist_m = Math.sqrt(dx_m * dx_m + dy_m * dy_m);
+            if (dist_m < 150) {
+                const force = (150 - dist_m) / 150;
+                p.vx += (dx_m / dist_m) * force * 0.3;
+                p.vy += (dy_m / dist_m) * force * 0.3;
+            }
+            
+            // Damping
+            p.vx *= 0.98;
+            p.vy *= 0.98;
+            
             p.x += p.vx;
             p.y += p.vy;
             
-            // Boundary detection
             if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
             if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
             
@@ -74,7 +85,6 @@ function initBackground() {
             ctx.fillStyle = p.color;
             ctx.fill();
             
-            // Draw connections
             particles.slice(index + 1).forEach(p2 => {
                 const dx = p.x - p2.x;
                 const dy = p.y - p2.y;
@@ -93,14 +103,15 @@ function initBackground() {
         animationId = requestAnimationFrame(drawParticles);
     }
     
-    // Initialize
+    // Track mouse for interactive particles
+    document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+    
     resizeCanvas();
     drawParticles();
-    
-    // Resize on window change
-    window.addEventListener('resize', function() {
-        resizeCanvas();
-    });
+    window.addEventListener('resize', resizeCanvas);
 }
 
 /**
@@ -110,7 +121,6 @@ function initNavbar() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
     
-    // Change navbar style on scroll
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -119,7 +129,6 @@ function initNavbar() {
         }
     });
     
-    // Smooth scroll to anchor
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -135,7 +144,7 @@ function initNavbar() {
 }
 
 /**
- * Scroll Animations
+ * Scroll Reveal Animations with stagger
  */
 function initScrollAnimations() {
     const observerOptions = {
@@ -152,15 +161,27 @@ function initScrollAnimations() {
         });
     }, observerOptions);
     
-    // Observe elements that need animation
-    document.querySelectorAll('.feature-card, .demo-video-card, .arch-item, .paper-card, .team-card').forEach(el => {
+    // Elements to animate on scroll
+    const animTargets = document.querySelectorAll(
+        '.feature-card, .demo-video-card, .arch-item, .paper-card, .team-card, ' +
+        '.demo-subsection, .usecase-card, .comparison-table, .subsection-title'
+    );
+    
+    animTargets.forEach((el, i) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transition = `opacity 0.6s ease ${(i % 5) * 0.08}s, transform 0.6s ease ${(i % 5) * 0.08}s`;
         observer.observe(el);
     });
     
-    // Add animation class styles
+    // Section headers fade in
+    document.querySelectorAll('.section-header').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+    });
+    
     const style = document.createElement('style');
     style.textContent = `
         .animate-in {
@@ -172,23 +193,54 @@ function initScrollAnimations() {
 }
 
 /**
- * Video Placeholder Click Events (Optional)
- * Replace placeholders when videos are ready
+ * Lazy Video Loading - only play videos when visible
  */
-function setupVideoPlaceholders() {
-    const placeholders = document.querySelectorAll('.video-placeholder');
+function initLazyVideos() {
+    const videos = document.querySelectorAll('.demo-video-card video, .hero-video-wrapper video');
     
-    placeholders.forEach(placeholder => {
-        placeholder.addEventListener('click', function() {
-            console.log('Placeholder clicked - add video replacement logic here');
-            // Example: replace with actual video
-            // this.innerHTML = '<video src="your-video.mp4" controls autoplay></video>';
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                if (video.paused && video.autoplay) {
+                    video.play().catch(() => {});
+                }
+            } else {
+                if (!video.paused && !video.controls) {
+                    video.pause();
+                }
+            }
         });
+    }, { threshold: 0.2 });
+    
+    videos.forEach(video => {
+        videoObserver.observe(video);
     });
 }
 
-// Set up video placeholders after page load
-document.addEventListener('DOMContentLoaded', setupVideoPlaceholders);
+/**
+ * Subtle parallax on hero section
+ */
+function initParallaxHero() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const heroHeight = hero.offsetHeight;
+        if (scrolled < heroHeight) {
+            const content = hero.querySelector('.hero-content-centered');
+            const video = hero.querySelector('.hero-video-full');
+            if (content) {
+                content.style.transform = `translateY(${scrolled * 0.15}px)`;
+                content.style.opacity = 1 - scrolled / heroHeight * 0.8;
+            }
+            if (video) {
+                video.style.transform = `translateY(${scrolled * 0.08}px)`;
+            }
+        }
+    });
+}
 
 /**
  * BibTeX Toggle & Copy
@@ -200,6 +252,37 @@ function toggleBibtex() {
     }
 }
 
+/**
+ * Image Lightbox - Click to zoom reference images
+ */
+function initLightbox() {
+    const overlay = document.getElementById('lightbox');
+    if (!overlay) return;
+    const lightboxImg = overlay.querySelector('.lightbox-img');
+    const closeBtn = overlay.querySelector('.lightbox-close');
+
+    // Attach click to all reference images
+    document.querySelectorAll('.interact-img-wrap img, .compare-ref-img img').forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    overlay.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+}
 function copyBibtex() {
     const code = document.querySelector('#bibtexBox code');
     if (code) {

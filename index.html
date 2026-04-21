@@ -31,7 +31,7 @@
                 <li><a href="#team" class="nav-link">Team</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="https://github.com/your-repo" target="_blank" class="btn-github">
+                <a href="https://github.com/luoxyhappy/CoInteract" target="_blank" class="btn-github">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
@@ -43,34 +43,33 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                Under Review
+        <div class="hero-content-centered">
+            <h1 class="hero-title-main">CoInteract</h1>
+            <h2 class="hero-subtitle">
+                Physically-Consistent Human-Object Interaction Video Synthesis<br>
+                via Spatially-Structured Co-Generation
+            </h2>
+            <div class="hero-team">
+                <span class="team-badge">Taobao Live Tech</span>
             </div>
-            <h1 class="hero-title">
-                <span class="title-line">CO</span>
-                <span class="title-line accent">INTERACT</span>
-            </h1>
-            <p class="hero-description">
-                An end-to-end framework for physically-consistent human–object interaction (HOI) video synthesis.
-                Conditioned on person &amp; product reference images, text prompts, and speech audio, CoInteract embeds structural priors and interaction geometry directly into a Diffusion Transformer backbone.
-            </p>
             <div class="hero-actions">
-                <a href="#demo" class="btn btn-primary">
+                <a href="#demo" class="btn btn-pill">
                     <span class="btn-icon">▶</span>
                     View Demo
                 </a>
-                <a href="#papers" class="btn btn-secondary">
+                <a href="https://huggingface.co/your-model" target="_blank" class="btn btn-pill">
+                    <span class="btn-icon">🤗</span>
+                    Hugging Face
+                </a>
+                <a href="#papers" class="btn btn-pill">
                     <span class="btn-icon">📄</span>
                     Read Paper
                 </a>
             </div>
         </div>
-        <div class="hero-visual">
-            <!-- Main Demo Video -->
+        <div class="hero-video-full">
             <div class="hero-video-wrapper">
-                <video src="asset/main_demo.mp4" autoplay loop muted playsinline></video>
+                <video id="mainDemoVideo" src="asset/main_demo.mp4" autoplay loop muted playsinline controls></video>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -119,48 +118,232 @@
             <h2 class="section-title">Demo Showcase</h2>
             <p class="section-subtitle">See It In Action</p>
         </div>
-        
-        <!-- Demo Gallery -->
-        <div class="demo-gallery">
-            <div class="demo-video-card">
-                <video src="asset/win1.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Macaron Box</h4><p>Presenting desserts in a bakery setting</p></div>
+
+        <!-- Sub-section 1: Demo Gallery -->
+        <div class="demo-subsection">
+            <h3 class="subsection-title"><span class="subsection-num">01</span>Demo Gallery</h3>
+            <p class="subsection-desc">Diverse object interactions across various real-world scenarios</p>
+            <div class="demo-gallery">
+                <div class="demo-video-card"><video src="asset/gallery/win1.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win2.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win4.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win5.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win6.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win10.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win8.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win9.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win7.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win11.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win12.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win13.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win14.mp4" autoplay loop muted playsinline></video></div>
+                <div class="demo-video-card"><video src="asset/gallery/win15.mp4" autoplay loop muted playsinline></video></div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win2.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Leather Handbag</h4><p>Showcasing a luxury bag in a boutique</p></div>
+        </div>
+
+        <!-- Sub-section 2: InteractDemo -->
+        <div class="demo-subsection">
+            <h3 class="subsection-title"><span class="subsection-num">02</span>InteractDemo</h3>
+            <p class="subsection-desc">Given a person image and a product image, CoInteract generates physically-consistent interaction videos</p>
+            <div class="interact-cases">
+                <div class="interact-case">
+                    <div class="interact-inputs">
+                        <div class="interact-img-wrap"><img src="asset/Interact/case1_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/Interact/case1_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                        <span class="interact-arrow">→</span>
+                    </div>
+                    <div class="interact-output"><video src="asset/Interact/case1.mp4" autoplay loop muted playsinline></video></div>
+                    <div class="interact-prompts">
+                                            <div class="prompt-step"><span class="prompt-num">1</span><p>A woman with shoulder-length dark hair, wearing a white textured short-sleeve top with black trim and dark gray pants, stands in a well-lit boutique environment. She holds a colorful patterned handbag with yellow trim in her left hand, gripping the top handle. She shifts her grip, moving her right hand to the front of the bag to gently press and smooth the surface, showcasing the pattern. She lifts the bag slightly upward and rotates it slowly to the left, allowing the camera to capture the side profile and the yellow trim along the edges.</p></div>
+                                            <div class="prompt-step"><span class="prompt-num">2</span><p>She holds the colorful patterned handbag with yellow trim, rotating it back to a front-facing position and lowering it to waist height. Her right hand moves to support the bottom of the bag while her left hand remains on the handle. She tilts the bag gently forward, displaying the full front pattern and yellow trim along the lower edge to the camera.</p></div>
+                                            <div class="prompt-step"><span class="prompt-num">3</span><p>She lifts the colorful patterned handbag with yellow trim back to chest height with both hands on the handle, holding it centered and steady in front of her body. She keeps the bag front-facing and still, allowing the camera to capture the complete design in a final display pose.</p></div>
+                                        </div>
+                </div>
+                <div class="interact-case">
+                    <div class="interact-inputs">
+                        <div class="interact-img-wrap"><img src="asset/Interact/case2_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/Interact/case2_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                        <span class="interact-arrow">→</span>
+                    </div>
+                    <div class="interact-output"><video src="asset/Interact/case2.mp4" autoplay loop muted playsinline></video></div>
+                    <div class="interact-prompts">
+                                            <div class="prompt-step"><span class="prompt-num">1</span><p>A man in his late twenties with a fade haircut and a gold chain, wearing a white oversized hoodie, baggy jeans, and chunky sneakers, standing in front of a concrete basketball court. The person picks up a hardcover cookbook with a linen spine in olive green and gold foil lettering with both hands and holds it near their chest, slowly rotating it a quarter turn to the right to reveal the side profile.</p></div>
+                                            <div class="prompt-step"><span class="prompt-num">2</span><p>The person raises the hardcover cookbook closer to their face and examines it with a subtle smile, then turns it in a smooth half-rotation so the camera captures the opposite side. They lower it back to chest level and run their thumb across the front surface to emphasize material quality.</p></div>
+                                            <div class="prompt-step"><span class="prompt-num">3</span><p>The person positions the hardcover cookbook front and center at mid-chest height, gripping it lightly with both hands. They look toward the camera with a confident but relaxed expression, holding the item motionless as a final product showcase before the video ends.</p></div>
+                                        </div>
+                </div>
+                <div class="interact-case">
+                    <div class="interact-inputs">
+                        <div class="interact-img-wrap"><img src="asset/Interact/case3_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/Interact/case3_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                        <span class="interact-arrow">→</span>
+                    </div>
+                    <div class="interact-output"><video src="asset/Interact/case3.mp4" autoplay loop muted playsinline></video></div>
+                    <div class="interact-prompts">
+                                            <div class="prompt-step"><span class="prompt-num">1</span><p>A tall athletic man with a buzz cut and a relaxed expression, wearing a black turtleneck and tailored gray trousers, standing in a bright kitchen with white cabinets. The person reaches toward a glass teapot with a removable stainless steel infuser basket and lifts it from a surface, bringing it to mid-torso height. They hold it steadily with both hands and angle it slightly toward the camera.</p></div>
+                                            <div class="prompt-step"><span class="prompt-num">2</span><p>Holding the glass teapot at chest height, the person slowly flips it over with both hands to reveal the bottom and back details. They trace a finger along a distinguishing feature, then rotate the item back to its original orientation, holding it slightly higher to catch the ambient light.</p></div>
+                                            <div class="prompt-step"><span class="prompt-num">3</span><p>The person holds the glass teapot in a final display at chest height, right hand supporting the top and left hand cupping the base. The front details are centered and facing the camera as the person maintains a warm expression and a still, composed pose.</p></div>
+                                        </div>
+                </div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win3.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Teapot</h4><p>Holding a teapot on a scenic terrace</p></div>
+        </div>
+
+        <!-- Sub-section 3: Co-Generation Visualization -->
+        <div class="demo-subsection">
+            <h3 class="subsection-title"><span class="subsection-num">03</span>Co-Generation</h3>
+            <p class="subsection-desc">Dual-stream co-generation: RGB stream and HOI structure stream are jointly generated within a shared DiT backbone</p>
+            <div class="cogen-cases">
+                <div class="cogen-case">
+                    <div class="cogen-inputs">
+                        <div class="interact-img-wrap"><img src="asset/Co-Generation/case1_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/Co-Generation/case1_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                    </div>
+                    <div class="cogen-outputs">
+                        <div class="cogen-video-wrap"><video src="asset/Co-Generation/case1.mp4" autoplay loop muted playsinline></video><span class="cogen-label">RGB Stream</span></div>
+                        <div class="cogen-video-wrap"><video src="asset/Co-Generation/case1_hoi.mp4" autoplay loop muted playsinline></video><span class="cogen-label">HOI Stream</span></div>
+                    </div>
+                </div>
+                <div class="cogen-case">
+                    <div class="cogen-inputs">
+                        <div class="interact-img-wrap"><img src="asset/Co-Generation/case2_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/Co-Generation/case2_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                    </div>
+                    <div class="cogen-outputs">
+                        <div class="cogen-video-wrap"><video src="asset/Co-Generation/case2.mp4" autoplay loop muted playsinline></video><span class="cogen-label">RGB Stream</span></div>
+                        <div class="cogen-video-wrap"><video src="asset/Co-Generation/case2_hoi.mp4" autoplay loop muted playsinline></video><span class="cogen-label">HOI Stream</span></div>
+                    </div>
+                </div>
+                <div class="cogen-case">
+                    <div class="cogen-inputs">
+                        <div class="interact-img-wrap"><img src="asset/Co-Generation/case3_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/Co-Generation/case3_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                    </div>
+                    <div class="cogen-outputs">
+                        <div class="cogen-video-wrap"><video src="asset/Co-Generation/case3.mp4" autoplay loop muted playsinline></video><span class="cogen-label">RGB Stream</span></div>
+                        <div class="cogen-video-wrap"><video src="asset/Co-Generation/case3_hoi.mp4" autoplay loop muted playsinline></video><span class="cogen-label">HOI Stream</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win4.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Skincare Serum</h4><p>Presenting a serum bottle at a beauty counter</p></div>
+        </div>
+
+        <!-- Sub-section 4: Human-Aware MoE Visualization -->
+        <div class="demo-subsection">
+            <h3 class="subsection-title"><span class="subsection-num">04</span>Human-Aware MoE</h3>
+            <p class="subsection-desc">Spatially-supervised Mixture-of-Experts routes tokens to region-specialized experts (Head, Hand, Base)</p>
+            <div class="moe-cases">
+                <div class="moe-case">
+                    <div class="moe-main"><video src="asset/moe/case1.mp4" autoplay loop muted playsinline></video><span class="moe-label">Full Result</span></div>
+                    <div class="moe-experts">
+                        <div class="moe-expert"><video src="asset/moe/case1_head.mp4" autoplay loop muted playsinline></video><span class="moe-label">Head Expert</span></div>
+                        <div class="moe-expert"><video src="asset/moe/case1_hand.mp4" autoplay loop muted playsinline></video><span class="moe-label">Hand Expert</span></div>
+                        <div class="moe-expert"><video src="asset/moe/case1_base.mp4" autoplay loop muted playsinline></video><span class="moe-label">Base Expert</span></div>
+                    </div>
+                </div>
+                <div class="moe-case">
+                    <div class="moe-main"><video src="asset/moe/case2.mp4" autoplay loop muted playsinline></video><span class="moe-label">Full Result</span></div>
+                    <div class="moe-experts">
+                        <div class="moe-expert"><video src="asset/moe/case2_head.mp4" autoplay loop muted playsinline></video><span class="moe-label">Head Expert</span></div>
+                        <div class="moe-expert"><video src="asset/moe/case2_hand.mp4" autoplay loop muted playsinline></video><span class="moe-label">Hand Expert</span></div>
+                        <div class="moe-expert"><video src="asset/moe/case2_base.mp4" autoplay loop muted playsinline></video><span class="moe-label">Base Expert</span></div>
+                    </div>
+                </div>
+                <div class="moe-case">
+                    <div class="moe-main"><video src="asset/moe/case3.mp4" autoplay loop muted playsinline></video><span class="moe-label">Full Result</span></div>
+                    <div class="moe-experts">
+                        <div class="moe-expert"><video src="asset/moe/case3_head.mp4" autoplay loop muted playsinline></video><span class="moe-label">Head Expert</span></div>
+                        <div class="moe-expert"><video src="asset/moe/case3_hand.mp4" autoplay loop muted playsinline></video><span class="moe-label">Hand Expert</span></div>
+                        <div class="moe-expert"><video src="asset/moe/case3_base.mp4" autoplay loop muted playsinline></video><span class="moe-label">Base Expert</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win5.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Eyeshadow Palette</h4><p>Displaying a makeup palette in a studio</p></div>
+        </div>
+
+        <!-- Sub-section 5: Use Cases - Virtual Try-On -->
+        <div class="demo-subsection">
+            <h3 class="subsection-title"><span class="subsection-num">05</span>Use Case: Virtual Try-On</h3>
+            <p class="subsection-desc">CoInteract enables physically realistic virtual try-on by synthesizing natural garment interactions</p>
+            <div class="tryon-cases">
+                <div class="interact-case">
+                    <div class="interact-inputs">
+                        <div class="interact-img-wrap"><img src="asset/tryon/case1_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/tryon/case1_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                        <span class="interact-arrow">→</span>
+                    </div>
+                    <div class="interact-output"><video src="asset/tryon/case1.mp4" autoplay loop muted playsinline></video></div>
+                </div>
+                <div class="interact-case">
+                    <div class="interact-inputs">
+                        <div class="interact-img-wrap"><img src="asset/tryon/case3_person.png" alt="Person"><span class="interact-label">Person</span></div>
+                        <span class="interact-plus">+</span>
+                        <div class="interact-img-wrap"><img src="asset/tryon/case3_product.png" alt="Product"><span class="interact-label">Product</span></div>
+                        <span class="interact-arrow">→</span>
+                    </div>
+                    <div class="interact-output"><video src="asset/tryon/case3.mp4" autoplay loop muted playsinline></video></div>
+                </div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win6.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Sports Jacket</h4><p>Presenting athletic wear in a sports store</p></div>
+        </div>
+
+        <!-- Sub-section 6: SOTA Comparison -->
+        <div class="demo-subsection">
+            <h3 class="subsection-title"><span class="subsection-num">06</span>SOTA Comparison</h3>
+            <p class="subsection-desc">Comparison with state-of-the-art methods in human-object interaction video synthesis</p>
+
+            <!-- Comparison Case 1 -->
+            <div class="compare-case">
+                <div class="compare-ref">
+                    <div class="compare-ref-img"><img src="asset/Compare/case1/person.png" alt="Person"><span class="compare-ref-label">Person</span></div>
+                    <div class="compare-ref-img"><img src="asset/Compare/case1/object.png" alt="Object"><span class="compare-ref-label">Object</span></div>
+                </div>
+                <div class="compare-methods">
+                    <div class="compare-method ours"><video src="asset/Compare/case1/ours.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Ours</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case1/InteractAvatar.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">InteractAvatar</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case1/anchorcrafter.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">AnchorCrafter</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case1/humo.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">HUMO</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case1/phantom.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Phantom</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case1/skyreels.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">SkyReels</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case1/vace.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">VACE</span></div>
+                </div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win7.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Emerald Necklace</h4><p>Showcasing jewelry at a luxury counter</p></div>
+
+            <!-- Comparison Case 2 -->
+            <div class="compare-case">
+                <div class="compare-ref">
+                    <div class="compare-ref-img"><img src="asset/Compare/case2/person.png" alt="Person"><span class="compare-ref-label">Person</span></div>
+                    <div class="compare-ref-img"><img src="asset/Compare/case2/object.png" alt="Object"><span class="compare-ref-label">Object</span></div>
+                </div>
+                <div class="compare-methods">
+                    <div class="compare-method ours"><video src="asset/Compare/case2/ours.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Ours</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case2/InteractAvatar.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">InteractAvatar</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case2/anchorcrafter.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">AnchorCrafter</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case2/humo.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">HUMO</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case2/phantom.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Phantom</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case2/skyreels.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">SkyReels</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case2/vace.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">VACE</span></div>
+                </div>
             </div>
-            <div class="demo-video-card">
-                <video src="asset/win8.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Decorative Plate</h4><p>Presenting an art piece at a formal event</p></div>
-            </div>
-            <div class="demo-video-card">
-                <video src="asset/win9.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Cactus Pot</h4><p>Holding a potted plant in a restaurant</p></div>
-            </div>
-            <div class="demo-video-card">
-                <video src="asset/win10.mp4" autoplay loop muted playsinline></video>
-                <div class="demo-caption"><h4>Coffee Mug</h4><p>Enjoying a beverage at a beach bar</p></div>
+
+            <!-- Comparison Case 3 -->
+            <div class="compare-case">
+                <div class="compare-ref">
+                    <div class="compare-ref-img"><img src="asset/Compare/case3/person.png" alt="Person"><span class="compare-ref-label">Person</span></div>
+                    <div class="compare-ref-img"><img src="asset/Compare/case3/object.png" alt="Object"><span class="compare-ref-label">Object</span></div>
+                </div>
+                <div class="compare-methods">
+                    <div class="compare-method ours"><video src="asset/Compare/case3/ours.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Ours</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case3/InteractAvatar.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">InteractAvatar</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case3/anchorcrafter.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">AnchorCrafter</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case3/humo.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">HUMO</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case3/phantom.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">Phantom</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case3/skyreels.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">SkyReels</span></div>
+                    <div class="compare-method"><video src="asset/Compare/case3/vace.mp4" autoplay loop muted playsinline></video><span class="compare-method-label">VACE</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -225,14 +408,14 @@
                     <div class="paper-notes">
                         <span>* Equal Contribution</span>
                         <span>·</span>
-                        <span>Xiaozhe Xin is the Project Lead</span>
+                        <span>Xiaozhe Xin is the Corresponding Author</span>
                     </div>
                     <div class="paper-venue">Under Review, 2025</div>
                     <div class="paper-links">
                         <a href="#" class="paper-link">
                             <span>📄</span> Paper
                         </a>
-                        <a href="https://github.com/your-repo" target="_blank" class="paper-link">
+                        <a href="https://github.com/luoxyhappy/CoInteract" target="_blank" class="paper-link">
                             <span>💻</span> Code
                         </a>
                         <a href="javascript:void(0)" class="paper-link" onclick="toggleBibtex()">
@@ -278,7 +461,7 @@
                     <div class="avatar-placeholder">👤</div>
                 </div>
                 <h4 class="team-name">Xiaozhe Xin</h4>
-                <p class="team-role">Co-first Author &middot; <span class="lead-badge">Project Lead</span></p>
+                <p class="team-role">Co-first Author &middot; <span class="lead-badge">Corresponding Author</span></p>
                 <p class="team-affil">Alibaba Group</p>
                 <div class="team-links">
                     <a href="#" class="team-link">Google Scholar</a>
@@ -345,14 +528,20 @@
             </div>
             <p class="footer-text">© 2025 CoInteract. All rights reserved.</p>
             <div class="footer-links">
-                <a href="https://github.com/your-repo" target="_blank">GitHub</a>
+                <a href="https://github.com/xinxiaozhe12345" target="_blank">GitHub</a>
                 <span class="divider">|</span>
                 <a href="#" target="_blank">arXiv</a>
                 <span class="divider">|</span>
-                <a href="mailto:contact@cointeract.org">Contact</a>
+                <a href="mailto:georgexin9@gmail.com">Contact</a>
             </div>
         </div>
     </footer>
+
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-close">&times;</div>
+        <img class="lightbox-img" src="" alt="">
+    </div>
 
     <script src="js/main.js"></script>
 </body>
