@@ -445,6 +445,14 @@ section {
     letter-spacing: 4px;
 }
 
+.demo-quality-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
 /* ================================
    Features Section
    ================================ */
