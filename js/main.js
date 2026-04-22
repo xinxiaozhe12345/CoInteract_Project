@@ -196,22 +196,25 @@ function initScrollAnimations() {
  * Lazy Video Loading - only play videos when visible
  */
 function initLazyVideos() {
-    const videos = document.querySelectorAll('.demo-video-card video, .hero-video-wrapper video');
+    const videos = document.querySelectorAll('video[data-src], .hero-video-wrapper video');
     
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                if (video.paused && video.autoplay) {
-                    video.play().catch(() => {});
+                // Lazy load: set src from data-src on first view
+                if (!video.src && video.dataset.src) {
+                    video.src = video.dataset.src;
+                    video.load();
                 }
+                video.play().catch(() => {});
             } else {
                 if (!video.paused && !video.controls) {
                     video.pause();
                 }
             }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1, rootMargin: '200px 0px' });
     
     videos.forEach(video => {
         videoObserver.observe(video);
